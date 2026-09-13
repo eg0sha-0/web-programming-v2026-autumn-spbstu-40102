@@ -28,10 +28,10 @@ body {
   background-color: #006a4e;
   overflow: hidden;
   border-radius: 4px;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
 }
 
-.flag__circle {
+.flag-circle {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -42,7 +42,7 @@ body {
   border-radius: 50%;
 }
 
-.flag__caption {
+.flag-caption {
   position: absolute;
   bottom: -2rem;
   left: 50%;
