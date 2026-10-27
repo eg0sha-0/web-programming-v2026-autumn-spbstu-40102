@@ -71,12 +71,10 @@ export async function createApp(options: AppOptions = {}) {
       login.trim() !== username ||
       !timingSafeEqual(scryptSync(submittedPassword, salt, 64), digest)
     ) {
-      return res
-        .status(401)
-        .json({
-          message:
-            'Такого пользователя нет, возможно неправильный логин или пароль — проверьте данные.',
-        });
+      return res.status(401).json({
+        message:
+          'Такого пользователя нет, возможно неправильный логин или пароль — проверьте данные.',
+      });
     }
     if (req.sessionToken) {
       sessions.delete(req.sessionToken);
@@ -149,14 +147,12 @@ export async function createApp(options: AppOptions = {}) {
         : details.status === 413
           ? 413
           : 500;
-    return res
-      .status(status)
-      .json({
-        message:
-          status === 400
-            ? 'Некорректный JSON.'
-            : 'Не удалось выполнить запрос. Повторите попытку.',
-      });
+    return res.status(status).json({
+      message:
+        status === 400
+          ? 'Некорректный JSON.'
+          : 'Не удалось выполнить запрос. Повторите попытку.',
+    });
   };
   app.use(handleError);
   return app;
